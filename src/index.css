@@ -1,12 +1,17 @@
 @import "tailwindcss";
 
+
+
+/* =========================
+   VARIABLES Y CONFIGURACIÓN
+========================= */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #e0e7ff;          /* texto claro */
+  color: #e0e7ff;           /* texto claro */
   background-color: #1e1e2f; /* fondo oscuro principal */
 
   font-synthesis: none;
@@ -15,6 +20,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
+/* =========================
+   ENLACES
+========================= */
 a {
   font-weight: 500;
   color: #3b82f6; /* azul principal para links */
@@ -26,12 +36,28 @@ a:hover {
 
 
 
+/* =========================
+   TITULOS
+========================= */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
   color: #ffffff; 
 }
 
+.uf-title {
+  font-size: 2.5rem;        /* ajusta como quieras */
+  font-weight: bold;
+  color: #1c293d;           /* equivalente a text-blue-900 de Tailwind */
+  text-align: center;
+  margin-bottom: 2rem;       /* mb-8 en Tailwind */
+}
+
+
+
+/* =========================
+   BOTONES
+========================= */
 button {
   background-color: #3b82f6;
   color: #ffffff;
@@ -49,27 +75,10 @@ button:hover {
   background-color: rgb(115,100,100);
 }
 
-
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #1e293b;          /* texto en modo claro */
-    background-color: #ffffff; /* fondo claro */
-  }
-  h1 {
-    color: #1e293b;
-  }
-  a {
-    color: #1d4ed8; /* azul más intenso en modo claro */
-  }
-  a:hover {
-    color: #3b82f6; /* hover azul claro */
-  }
-  button {
-    background-color: #3b82f6;
-    color: #ffffff;
-  }
-  button:hover {
-    background-color: #2563eb;
-  }
+/* =========================
+   INPUTS
+========================= */
+.date-input {
+  color: #000000;            /* texto negro */
+  background-color: #ffffff; /* fondo blanco */
 }

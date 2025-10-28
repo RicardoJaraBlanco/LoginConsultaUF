@@ -43,33 +43,33 @@ export default function ConsultaUfPage() {
     };
 
     // Consulta UF por día
-const handleConsultaDia = async () => {
-  setLoading(true);
-  setUf(null);
-  try {
-    const fechaFormateada = formatearFecha(fecha);
-    const valor = await obtenerUfDia(fechaFormateada);
-    setUf(valor);
-  } catch (err: any) {
-    showPopup(err.message);
-  } finally {
-    setLoading(false);
-  }
-};
+    const handleConsultaDia = async () => {
+        setLoading(true);
+        setUf(null);
+        try {
+            const fechaFormateada = formatearFecha(fecha);
+            const valor = await obtenerUfDia(fechaFormateada);
+            setUf(valor);
+        } catch (err: any) {
+            showPopup(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     // Consulta UF por rango (multi-año)
-const handleConsultaRango = async () => {
-  setLoading(true);
-  setUfData([]);
-  try {
-    const datos = await obtenerUfRango(new Date(fechaInicio), new Date(fechaFin));
-    setUfData(datos);
-  } catch (err: any) {
-    showPopup(err.message);
-  } finally {
-    setLoading(false);
-  }
-};
+    const handleConsultaRango = async () => {
+        setLoading(true);
+        setUfData([]);
+        try {
+            const datos = await obtenerUfRango(new Date(fechaInicio), new Date(fechaFin));
+            setUfData(datos);
+        } catch (err: any) {
+            showPopup(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
 
@@ -80,7 +80,7 @@ const handleConsultaRango = async () => {
             {/* Contenedor centrado */}
             <div className="mt-20 flex items-center justify-center">
                 <div className="bg-white/90 backdrop-blur-lg p-8 rounded-3xl shadow-2xl max-w-3xl w-full">
-                    <h1 className="text-4xl font-bold text-blue-900 mb-8 text-center">
+                    <h1 className="uf-title">
                         Consulta de UF
                     </h1>
 
@@ -89,8 +89,8 @@ const handleConsultaRango = async () => {
                         <button
                             onClick={() => setModo("dia")}
                             className={`px-4 py-2 rounded-xl font-semibold transition ${modo === "dia"
-                                    ? "bg-blue-600 text-white"
-                                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                                ? "bg-blue-600 text-white"
+                                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                                 }`}
                         >
                             UF por Día
@@ -98,8 +98,8 @@ const handleConsultaRango = async () => {
                         <button
                             onClick={() => setModo("rango")}
                             className={`px-4 py-2 rounded-xl font-semibold transition ${modo === "rango"
-                                    ? "bg-blue-600 text-white"
-                                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                                ? "bg-blue-600 text-white"
+                                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                                 }`}
                         >
                             UF por Rango
@@ -110,12 +110,12 @@ const handleConsultaRango = async () => {
                     {modo === "dia" && (
                         <div className="flex flex-col gap-4">
                             <label className="text-gray-700 font-medium">Selecciona una fecha:</label>
-                            <input
-                                type="date"
-                                value={fecha}
-                                onChange={(e) => setFecha(e.target.value)}
-                                className="border border-gray-300 p-3 rounded-xl w-full focus:ring-2 focus:ring-blue-400 outline-none"
-                            />
+<input
+    type="date"
+    value={fecha}
+    onChange={(e) => setFecha(e.target.value)}
+    className="border border-gray-300 p-3 rounded-xl w-full focus:ring-2 focus:ring-blue-400 outline-none date-input"
+/>
                             <button
                                 onClick={handleConsultaDia}
                                 className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-900 transition"
@@ -151,21 +151,21 @@ const handleConsultaRango = async () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label className="text-gray-700 font-medium">Fecha inicio:</label>
-                                    <input
-                                        type="date"
-                                        value={fechaInicio}
-                                        onChange={(e) => setFechaInicio(e.target.value)}
-                                        className="border border-gray-300 p-3 rounded-xl w-full focus:ring-2 focus:ring-blue-400 outline-none"
-                                    />
+<input
+    type="date"
+    value={fechaInicio}
+    onChange={(e) => setFechaInicio(e.target.value)}
+    className="border border-gray-300 p-3 rounded-xl w-full focus:ring-2 focus:ring-blue-400 outline-none date-input"
+/>
                                 </div>
                                 <div>
                                     <label className="text-gray-700 font-medium">Fecha fin:</label>
-                                    <input
-                                        type="date"
-                                        value={fechaFin}
-                                        onChange={(e) => setFechaFin(e.target.value)}
-                                        className="border border-gray-300 p-3 rounded-xl w-full focus:ring-2 focus:ring-blue-400 outline-none"
-                                    />
+<input
+    type="date"
+    value={fechaFin}
+    onChange={(e) => setFechaFin(e.target.value)}
+    className="border border-gray-300 p-3 rounded-xl w-full focus:ring-2 focus:ring-blue-400 outline-none date-input"
+/>
                                 </div>
                             </div>
 
